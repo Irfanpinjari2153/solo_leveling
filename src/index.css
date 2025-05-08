@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 25% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 35% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 25% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 250 92% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 212 98% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 35% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 20% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 212 98% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-system;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-jinwoo;
+  }
+  
+  /* Mobile optimizations */
+  html, body {
+    @apply overscroll-none overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .system-panel {
+    @apply bg-system-panel rounded-md backdrop-blur-sm border border-blue-500/30 shadow-system;
+  }
+  
+  .system-text {
+    @apply text-system-blue font-medium;
+  }
+  
+  .system-title {
+    @apply font-jinwoo text-system-blue font-semibold tracking-wide;
+  }
+
+  .system-border {
+    @apply border-b border-blue-500/30 w-full my-2 relative before:content-[''] before:absolute before:inset-0 before:bg-system-border;
+  }
+
+  .system-button {
+    @apply bg-system-panel px-4 py-2 rounded font-system text-system-blue border border-blue-500/30 
+    hover:bg-slate-800/80 hover:border-blue-400/50 hover:shadow-system transition-all duration-300;
+  }
+
+  .stat-bar {
+    @apply h-2 rounded-full bg-gray-700 overflow-hidden relative;
+  }
+
+  .stat-progress {
+    @apply h-full rounded-full bg-gradient-to-r from-system-blue to-system-blue-glow animate-pulse-glow;
+  }
+
+  .shimmer-effect {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-shimmer before:bg-[length:200%_100%] before:animate-shimmer;
+  }
+
+  .bg-grid-system {
+    background-image: 
+      linear-gradient(to right, rgba(51, 195, 240, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(51, 195, 240, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  /* Mobile specific components */
+  @media (max-width: 767px) {
+    .system-panel {
+      @apply rounded-sm border-blue-500/20;
+    }
+    
+    .system-button {
+      @apply px-3 py-1.5 text-sm;
+    }
+  }
+}
